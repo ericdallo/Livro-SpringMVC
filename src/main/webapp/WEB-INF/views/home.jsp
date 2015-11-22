@@ -7,23 +7,6 @@
 <title>Cadastro de produtos</title>
 </head>
 <body>
-	<form method="POST" action="/livrospring/produtos">
-		<div>
-			<label for="title">Titulo</label>
-			<input type="text" name="title" id="title"/>
-		</div>
-		<div>
-			<label for="description">Descricao</label>
-			<textarea rows="10" cols="20" name="description" id="description">
-			</textarea>
-		</div>
-		<div>
-			<label for="pages">Numero de Paginas</label>
-			<input type="text" name="pages" id="pages"/>
-		</div>
-		<div>
-			<input type="submit" value="Enviar"/>
-		</div>
-	</form>
+	HOME
 </body>
 </html>
