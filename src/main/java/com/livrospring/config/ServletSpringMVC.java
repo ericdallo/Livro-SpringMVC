@@ -6,13 +6,12 @@ public class ServletSpringMVC  extends AbstractAnnotationConfigDispatcherServlet
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class[] {AppConfiguration.class,JPAConfiguration.class};
+		return new Class[] {AppConfiguration.class, JPAConfiguration.class};
 	}
 
 	@Override

@@ -5,16 +5,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.Table;
 
+@Table(name="product")
 @Entity
 public class Product {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	private String title;
+	
 	@Lob
 	private String description;
+	
 	private int pages;
 
 	public String getTitle() {

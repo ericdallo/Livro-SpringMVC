@@ -19,15 +19,23 @@ public class JPAConfiguration {
 
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
-		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-		em.setDataSource(dataSource());
-		em.setPackagesToScan(new String[] {"com.livrospring.model"});
+		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
+		emf.setDataSource(dataSource());
+		emf.setPackagesToScan(new String[] {"com.livrospring.model"});
 		
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-		em.setJpaVendorAdapter(vendorAdapter);
-		em.setJpaProperties(additionProperties());
+		emf.setJpaVendorAdapter(vendorAdapter);
+		emf.setJpaProperties(additionProperties());
 		
-		return em;
+		return emf;
+	}
+	private Properties additionProperties() {
+		Properties properties = new Properties();
+		properties.setProperty("hibernate.hbm2ddl.auto", "update");
+		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+		properties.setProperty("hibernate.show_sql", "true");
+		
+		return properties;
 	}
 
 	@Bean
@@ -47,15 +55,5 @@ public class JPAConfiguration {
 		transactionManager.setEntityManagerFactory(factory);
 		
 		return transactionManager;
-	}
-	
-
-	private Properties additionProperties() {
-		Properties properties = new Properties();
-		properties.setProperty("hibernate.hbm2ddl.auto", "update");
-		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-		properties.setProperty("hibernate.show_sql", "true");
-		
-		return properties;
 	}
 }
