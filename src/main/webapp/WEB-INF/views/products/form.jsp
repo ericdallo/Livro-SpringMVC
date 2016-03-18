@@ -9,25 +9,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- 
-	<c:forEach items="${requestScope['org.springframework.validation.BindingResult.product'].allErrors}" var="error">
-	 ${error.code }<br/>
-	</c:forEach>
-	 -->
-	 <!--
-	 <spring:hasBindErrors name="product">
-	 	<ul>
-	 		<c:forEach var="error" items="${errors.allErrors}">
-	 			<li><spring:message code="${error.code}" text="${error.defaultMessage }"/></li>
-	 		</c:forEach>
-	 	</ul>
-	 </spring:hasBindErrors>-->
 
-	<form:form method="POST" action="/livrospring/produtos" commandName="product">
+	<form:form method="POST" action="/livrospring/produtos" commandName="product" enctype="multipart/form-data">
 		<div>
 			<label for="title">Titulo</label>
 			<form:input path="title"/>
 			<form:errors path="title"/>
+		</div>
+		<div>
+			<label for="summary">Sumario do Livro</label>
+			<input type="file" name="summary"/>
+			<form:errors path="summaryPath"></form:errors>
 		</div>
 		<div>
 			<label for="description">Descricao</label>

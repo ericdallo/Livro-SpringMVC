@@ -17,6 +17,7 @@
 		</tr>
 		<c:forEach items="${products}" var="product">
 			<tr>
+				<td><img alt="summary-image" src="${product.summaryPath}"></td>
 				<td>${product.title}</td>
 				<td>
 					<c:forEach var="p" items="${product.prices}">
